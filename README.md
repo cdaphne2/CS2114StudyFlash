@@ -7,14 +7,6 @@ StudyFlash is a
 
 ## Project Structure
 
-The project consists of four core modules and the primary driver class:
-
-- `Song.java` - Data model representing individual tracks, artists, duration, genre and play count metrics.
-- `UserPlaylist.java` - Manages song collections and playlist operations.
-- `Ranking.java` - Utility class for sorting and displaying top tracks based on play count.
-- `PlaylistLLM.java` - Generates recommendations and natural-language summaries based on listener habits.
-- `Podify.java` - Main driver class containing the `public static void main(String[] args)` entry point.
-
 ---
 
 ## How to Import, Compile, and Run in Eclipse
