@@ -139,6 +139,7 @@ public class LinkedChainTest extends TestCase
         chain.add("A");
 
         assertFalse(chain.remove("Z"));
+        assertFalse(chain.remove(null));
         assertEquals(1, chain.size());
     }
 
@@ -154,6 +155,85 @@ public class LinkedChainTest extends TestCase
         assertTrue(chain.remove("A"));
         assertEquals(1, chain.size());
         assertTrue(chain.contains("A"));
+    }
+
+
+    /**
+     * Tests removing the first entry.
+     */
+    public void testRemoveFirst()
+    {
+        assertNull(chain.remove());
+
+        chain.addToEnd("A");
+        chain.addToEnd("B");
+
+        assertEquals("A", chain.remove());
+        assertEquals(1, chain.size());
+        assertEquals("B", chain.remove());
+        assertTrue(chain.isEmpty());
+    }
+
+
+    /**
+     * Tests clearing the chain.
+     */
+    public void testClear()
+    {
+        chain.add("A");
+        chain.add("B");
+
+        chain.clear();
+
+        assertTrue(chain.isEmpty());
+        assertEquals(0, chain.size());
+        assertFalse(chain.contains("A"));
+    }
+
+
+    /**
+     * Tests getting an entry by position.
+     */
+    public void testGet()
+    {
+        chain.addToEnd("A");
+        chain.addToEnd("B");
+
+        assertEquals("A", chain.get(0));
+        assertEquals("B", chain.get(1));
+    }
+
+
+    /**
+     * Tests getting an entry with a bad position.
+     */
+    public void testGetOutOfBounds()
+    {
+        chain.add("A");
+
+        Exception e1 = null;
+        Exception e2 = null;
+
+        try
+        {
+            chain.get(-1);
+        }
+        catch (IndexOutOfBoundsException e)
+        {
+            e1 = e;
+        }
+
+        try
+        {
+            chain.get(1);
+        }
+        catch (IndexOutOfBoundsException e)
+        {
+            e2 = e;
+        }
+
+        assertNotNull(e1);
+        assertNotNull(e2);
     }
 
 
@@ -174,7 +254,7 @@ public class LinkedChainTest extends TestCase
 
 
     /**
-     * Tests getFrequencyOf.
+     * Tests getFrequencyOf and count.
      */
     public void testGetFrequencyOf()
     {
@@ -183,6 +263,7 @@ public class LinkedChainTest extends TestCase
         chain.add("A");
 
         assertEquals(2, chain.getFrequencyOf("A"));
+        assertEquals(2, chain.count("A"));
         assertEquals(1, chain.getFrequencyOf("B"));
         assertEquals(0, chain.getFrequencyOf("Z"));
         assertEquals(0, chain.getFrequencyOf(null));
@@ -205,18 +286,19 @@ public class LinkedChainTest extends TestCase
 
 
     /**
-     * Tests toArray with an array that is too small.
+     * Tests toArray with an array that is bigger than needed.
      */
-    public void testToArraySmallArray()
+    public void testToArray()
     {
         chain.addToEnd("A");
         chain.addToEnd("B");
 
-        String[] result = chain.toArray(new String[0]);
+        String[] result = chain.toArray(new String[3]);
 
-        assertEquals(2, result.length);
+        assertEquals(3, result.length);
         assertEquals("A", result[0]);
         assertEquals("B", result[1]);
+        assertNull(result[2]);
     }
 
 
@@ -226,25 +308,53 @@ public class LinkedChainTest extends TestCase
     public void testToArrayEmpty()
     {
         assertEquals(0, chain.toArray(new String[0]).length);
-
-        Object[] result = chain.toArray();
-
-        assertEquals(0, result.length);
     }
 
 
     /**
-     * Tests the toArray method with no arguments.
+     * Tests toArray with a null or too-small array.
      */
-    public void testToArrayNoArgument()
+    public void testToArrayBadArray()
     {
+        chain.add("A");
+
+        Exception e1 = null;
+        Exception e2 = null;
+
+        try
+        {
+            chain.toArray(null);
+        }
+        catch (IllegalArgumentException e)
+        {
+            e1 = e;
+        }
+
+        try
+        {
+            chain.toArray(new String[0]);
+        }
+        catch (IllegalArgumentException e)
+        {
+            e2 = e;
+        }
+
+        assertNotNull(e1);
+        assertNotNull(e2);
+    }
+
+
+    /**
+     * Tests toString.
+     */
+    public void testToString()
+    {
+        assertEquals("[]", chain.toString());
+
         chain.addToEnd("A");
         chain.addToEnd("B");
+        chain.addToEnd("C");
 
-        Object[] result = chain.toArray();
-
-        assertEquals(2, result.length);
-        assertEquals("A", result[0]);
-        assertEquals("B", result[1]);
+        assertEquals("[A, B, C]", chain.toString());
     }
 }
