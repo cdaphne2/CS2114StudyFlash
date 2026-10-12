@@ -4,7 +4,7 @@ import student.TestCase;
 /**
  * Tests the InputReader class.
  */
-public class InputReaderTest extends TestCase
+public class InputReaderTest extends student.TestCase
 {
     /**
      * Tests a null Scanner.
