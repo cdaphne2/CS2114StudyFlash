@@ -42,15 +42,29 @@ Eclipse automatically compiles your Java code every time you save a file (**Proj
 ## Reflection
 
 What changed from your specification? Classes, method signatures, where validation lives, test cases — what did the spec say, what did you build instead, and why?
+
+- LinkedChain: the spec's toArray() method became toArray(T[]), as java can't return a typed array from a general class. Also, size() and addToEnd() were added.
+
 What changed in the LinkedChain? Anything you added to or modified in the provided class and why your application needed it, or that you used it unchanged.
+
+- Started from the provided template. Added getFrequencyOf() and getCurrentSize(), which call the template's count() and size(), so the spec's method names work.
+  
 What happened to your unknowns? Of the things you listed in your scope as not knowing how to do, which did you figure out, and which are still open?
+
+- Figured out: Building a generic linked chain; testing console input with a Scanner.
+- Still open:
+  
 What doesn't work yet? MVP features, bad-input cases, or tests that are missing or failing in this prototype.
 
+- Pressing Ctrl+D (end of input) crashes InputReader with a NoSuchElementException.
 ---
 
 ## Next Steps
 
 What is left to finish the MVP? The remaining features and fixes, in the order you will do them.
+
+- Run classes with team's other classes and fix any problems.
+  
 Which stretch goals will you attempt? The ones from your scope you are committing to, and the ones you are dropping.
 What new tests will you need? The methods and bad-input cases the added work must cover.
 Who does what? Which team member owns each remaining item.
@@ -58,3 +72,18 @@ Who does what? Which team member owns each remaining item.
 ---
 
 Attribution — in your README.md, a table with one row per class and test file listing who worked on it and how (wrote, revised, reviewed, tested, GenAI-assisted, …), plus a note on the way in which you used GenAI, if at all.
+
+| Class                  | Member  | Contribution          | GenAI
+|------------------------|---------|-----------------------|
+| LinkedChain.java       | Rohan   | Adapted dept template | Yes, to adapt the department template.   
+| LinkedChainTest.java   | Rohan   | Wrote, tested         | Yes, to draft the test cases.
+| InputReader.java       | Rohan   | Wrote                 | Yes, to draft the class structure.
+| InputReaderTest.java   | Rohan   | Wrote, tested         | Yes, to draft the test cases.
+| Flashcard.java         | Daphne  |                       |       
+| FlashcardTest.java     | Daphne  |                       |       
+| Deck.java              | Daphne  |                       |       
+| DeckTest.java          | Daphne  |                       |       
+| StudySession.java      | Jasjeet |                       |       
+| StudySessionTest.java  | Jasjeet |                       |       
+| StudyFlashApp.java     | Jasjeet |                       |       
+| StudyFlashAppTest.java | Jasjeet |                       |       
