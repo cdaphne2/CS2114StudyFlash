@@ -73,17 +73,17 @@ Who does what? Which team member owns each remaining item.
 
 Attribution — in your README.md, a table with one row per class and test file listing who worked on it and how (wrote, revised, reviewed, tested, GenAI-assisted, …), plus a note on the way in which you used GenAI, if at all.
 
-| Class                  | Member  | Contribution          | GenAI
-|------------------------|---------|-----------------------|
-| LinkedChain.java       | Rohan   | Adapted dept template | Yes, to adapt the department template.   
-| LinkedChainTest.java   | Rohan   | Wrote, tested         | Yes, to draft the test cases.
-| InputReader.java       | Rohan   | Wrote                 | Yes, to draft the class structure.
-| InputReaderTest.java   | Rohan   | Wrote, tested         | Yes, to draft the test cases.
-| Flashcard.java         | Daphne  |                       |       
-| FlashcardTest.java     | Daphne  |                       |       
-| Deck.java              | Daphne  |                       |       
-| DeckTest.java          | Daphne  |                       |       
-| StudySession.java      | Jasjeet |                       |       
-| StudySessionTest.java  | Jasjeet |                       |       
-| StudyFlashApp.java     | Jasjeet |                       |       
-| StudyFlashAppTest.java | Jasjeet |                       |       
+| Class                  | Member  | Contribution          | GenAI                                  |
+|------------------------|---------|-----------------------|----------------------------------------|
+| LinkedChain.java       | Rohan   | Adapted dept template | Yes, to adapt the department template. |
+| LinkedChainTest.java   | Rohan   | Wrote, tested         | Yes, to draft the test cases.          |
+| InputReader.java       | Rohan   | Wrote                 | Yes, to draft the class structure.     |
+| InputReaderTest.java   | Rohan   | Wrote, tested         | Yes, to draft the test cases.          |
+| Flashcard.java         | Daphne  |                       |                                        |
+| FlashcardTest.java     | Daphne  |                       |                                        |
+| Deck.java              | Daphne  |                       |                                        |
+| DeckTest.java          | Daphne  |                       |                                        |
+| StudySession.java      | Jasjeet |                       |                                        |
+| StudySessionTest.java  | Jasjeet |                       |                                        |
+| StudyFlashApp.java     | Jasjeet |                       |                                        |
+| StudyFlashAppTest.java | Jasjeet |                       |                                        |
