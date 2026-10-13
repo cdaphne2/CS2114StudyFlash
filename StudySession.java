@@ -1,19 +1,24 @@
+/**
+ * Controls one flashcard study session.
+ */
 public class StudySession
 {
     private Deck deck;
 
     private LinkedChain<Flashcard> missedCards;
 
-    private LinkedChain<StudyResult> history;
+    private LinkedChain<String> history;
 
     private int reviewed;
 
     private InputReader input;
 
+
     /**
      * Creates a study session.
      *
-     * @param deck the deck being studied
+     * @param deck
+     *            the deck being studied
      */
     public StudySession(Deck deck)
     {
@@ -24,8 +29,10 @@ public class StudySession
     /**
      * Package-private constructor for testing.
      *
-     * @param deck deck to study
-     * @param input controlled input source
+     * @param deck
+     *            deck to study
+     * @param input
+     *            controlled input source
      */
     StudySession(Deck deck, InputReader input)
     {
@@ -48,7 +55,7 @@ public class StudySession
             new LinkedChain<Flashcard>();
 
         history =
-            new LinkedChain<StudyResult>();
+            new LinkedChain<String>();
 
         reviewed = 0;
     }
@@ -118,7 +125,8 @@ public class StudySession
     /**
      * Records a correct result.
      *
-     * @param card flashcard answered correctly
+     * @param card
+     *            flashcard answered correctly
      */
     public void markCorrect(Flashcard card)
     {
@@ -130,16 +138,15 @@ public class StudySession
         card.markCorrect();
 
         history.addToEnd(
-            new StudyResult(
-                card.getQuestion(),
-                true));
+            "Correct: " + card.getQuestion());
     }
 
 
     /**
      * Records a missed result.
      *
-     * @param card missed flashcard
+     * @param card
+     *            missed flashcard
      */
     public void markMissed(Flashcard card)
     {
@@ -153,9 +160,7 @@ public class StudySession
         missedCards.addToEnd(card);
 
         history.addToEnd(
-            new StudyResult(
-                card.getQuestion(),
-                false));
+            "Missed: " + card.getQuestion());
     }
 
 
@@ -227,10 +232,10 @@ public class StudySession
      *
      * @return study history
      */
-    StudyResult[] getHistorySnapshot()
+    String[] getHistorySnapshot()
     {
         return history.toArray(
-            new StudyResult[
+            new String[
                 history.size()]);
     }
 
@@ -280,9 +285,9 @@ public class StudySession
      */
     private void printHistory()
     {
-        StudyResult[] results =
+        String[] results =
             history.toArray(
-                new StudyResult[
+                new String[
                     history.size()]);
 
         if (results.length == 0)
@@ -293,7 +298,7 @@ public class StudySession
         System.out.println(
             "Session history:");
 
-        for (StudyResult result : results)
+        for (String result : results)
         {
             System.out.println(
                 "- " + result);
