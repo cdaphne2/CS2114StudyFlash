@@ -114,7 +114,7 @@ Attribution — in your README.md, a table with one row per class and test file 
 | FlashcardTest.java     | Daphne  | Wrote, tested.        | Yes, to help add Javadocs and comments.|
 | Deck.java              | Daphne  | Wrote, tested.        | Yes, to help add Javadocs and comments.|
 | DeckTest.java          | Daphne  | Wrote, tested         | Yes, to help add Javadocs and comments.|
-| StudySession.java      | Jasjeet |                       |                                        |
-| StudySessionTest.java  | Jasjeet |                       |                                        |
-| StudyFlashApp.java     | Jasjeet |                       |                                        |
-| StudyFlashAppTest.java | Jasjeet |                       |                                        |
+| StudySession.java      | Jasjeet | Wrote, tested.        | Yes, to help add comments              |
+| StudySessionTest.java  | Jasjeet | Wrote, tested         | Yes, to draft the test cases           |
+| StudyFlashApp.java     | Jasjeet | Wrote, tested         | Yes, to help add comments              |
+| StudyFlashAppTest.java | Jasjeet | Wrote, tested         | Yes, to draft the test cases           |
